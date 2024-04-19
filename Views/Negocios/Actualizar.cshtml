@@ -1,0 +1,56 @@
+﻿@model appCoreMVC_13.Models.Cliente
+
+@{
+    ViewData["Title"] = "Actualizar";
+}
+
+<h1 class="text-center mb-4"><i class="bi bi-pencil-square"></i> Actualizar Cliente</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <form asp-action="Actualizar">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="idcliente" class="form-label"><i class="bi bi-card-text"></i> ID Cliente</label>
+                        <input asp-for="idcliente" class="form-control" />
+                        <span asp-validation-for="idcliente" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="nombrecia" class="form-label"><i class="bi bi-building"></i> Nombre de la Compañía</label>
+                        <input asp-for="nombrecia" class="form-control" />
+                        <span asp-validation-for="nombrecia" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="direccion" class="form-label"><i class="bi bi-house-door"></i> Dirección</label>
+                        <input asp-for="direccion" class="form-control" />
+                        <span asp-validation-for="direccion" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="idpais" class="form-label"><i class="bi bi-globe"></i> País</label>
+                        <select asp-for="idpais" asp-items=@ViewBag.paises class="form-select"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="telefono" class="form-label"><i class="bi bi-telephone"></i> Teléfono</label>
+                        <input asp-for="telefono" class="form-control" />
+                        <span asp-validation-for="telefono" class="text-danger"></span>
+                    </div>
+                    <div class="d-grid">
+                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3 text-center">
+    <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Regresar a la Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
